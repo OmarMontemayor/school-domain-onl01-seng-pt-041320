@@ -1,21 +1,29 @@
 require 'pry'
 # code here!
 class School
-  attr_accessor :roster
-  def initialize(school)
-    @school = school
+  def initialize(name)
+    @name = name
     @roster = {}
   end
-  #add students
+  
+  def roster
+    @roster
+  end
   def add_student(name, grade)
-    @roster[grade] = []
-    length = @roster[grade].length
-    if length == 1
-      @roster[grade][length] << name
-    elsif length > 1 
-      @roster[grade][length - 1] << name
-    else
+    if @roster != NIL
       @roster[grade] << name
+    else
+      @roster[grade] = [name]
+    end
+  end
+  
+  def grade(grade)
+    @roster[grade]
+  end
+  
+  def sort
+    @roster.each do |key, value|
+      value.sort!
     end
   end
 end
