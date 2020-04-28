@@ -10,9 +10,9 @@ class School
   def add_student(name, grade)
     @roster[grade] = []
     @roster[grade] << name
-    if @roster[grade].length > 1
-      roster = @roster[grade]
-      roster << name
+    length = @roster[grade].length
+    if @roster[grade].length >= 1
+      @roster[grade][length-1] << name
     end
   end
 end
